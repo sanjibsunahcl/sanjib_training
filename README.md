@@ -1,2 +1,2 @@
 # sanjib_training
--React native training
+-Basic JavaScript training
