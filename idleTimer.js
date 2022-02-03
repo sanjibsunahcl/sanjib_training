@@ -23,7 +23,7 @@ export default class IdleTimer extends Component {
       },
       onMoveShouldSetPanResponder: () => true,
       onStartShouldSetPanResponderCapture: () => {
-        this.resetTimer();
+        // this.resetTimer();
         return false;
       },
       onMoveShouldSetPanResponderCapture: () => false,
@@ -32,7 +32,8 @@ export default class IdleTimer extends Component {
     });
     this.timer = setTimeout(() => {
       this.setState({show: true});
-    }, 6000);
+      console.log('idle state clear');
+    }, 1000 * 120 );
   }
 
   resetTimer() {
@@ -40,7 +41,8 @@ export default class IdleTimer extends Component {
     if (this.state.show) this.setState({show: false});
     this.timer = setTimeout(() => {
       this.setState({show: true});
-    }, 6000);
+      console.log('idle state clear');
+    }, 1000 * 120);
   }
 
   render() {
@@ -50,17 +52,17 @@ export default class IdleTimer extends Component {
         // collapsable={false}
         {...this._panResponder.panHandlers}>
         {this.state.show ? (
-          <Text style={{fontSize: 30}}>Idle State Timer Expired : 6sec</Text>
+          <Text style={{fontSize: 30}}>Idle State Timer Expired : 18sec</Text>
         ) : null}
-        {/* 
-        <TouchableOpacity>
+        
+        {/* <TouchableOpacity>
           <Image
             style={{width: 300, height: 300}}
             // source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
           />
         </TouchableOpacity>
 
-        <Button title="Here is a button for some reason" onPress={() => {}} /> */}
+        <Button title="Click here to avoid idle" onPress={() => {}} /> */}
       </View>
     );
   }
