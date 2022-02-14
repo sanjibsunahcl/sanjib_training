@@ -1,35 +1,21 @@
+class ClickCounter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {count: 0};
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.setState((state) => {
+            return {count: state.count + 1};
+        });
+    }
 
 
-class VirtualDom extends React.Component {
-
-  state = {
-    change: true
-  }
-
-  handleChange = (event) => {
-    this.setState({change: !this.state.change})
-  }
-
-  render() {
-    const { change } = this.state
-    return(
-      <div>
-        <div>
-          <button onClick={this.handleChange}>Change</button>
-        </div>
-        {
-          change ? 
-          <div>
-            This is div cause it's true
-            <h2>This is a h2 element in the div</h2>
-          </div> :
-          <p>
-            This is a p element cause it's false
-            <br />
-            <span>This is another paragraph in the false paragraph</span>
-          </p>
-        }
-      </div>
-    )
-  }
+    render() {
+        return [
+            <button key="1" onClick={this.handleClick}>Update counter</button>,
+            <span key="2">{this.state.count}</span>
+        ]
+    }
 }
