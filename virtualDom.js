@@ -1,4 +1,4 @@
-class ClickCounter extends React.Component {
+export default class VirtualDom extends React.Component {
     constructor(props) {
         super(props);
         this.state = {count: 0};
